@@ -37,7 +37,7 @@ function init() {
     handleSchoologyURL();
   }
   else {
-    alert("RUN THIS SCRIPT ON A EDPUZZLE ASSIGNMENT U DUMBASS");
+    alert("Please run this script on an Edpuzzle assignment. For reference, the URL should look like this:\nhttps://edpuzzle.com/assignments/{ASSIGNMENT_ID}/watch");
   }
 }
 
@@ -52,7 +52,7 @@ function handleCanvasURL() {
       let data = JSON.parse(this.responseText);
       let url3 = data.url;
 
-      alert(`Re-run this script in the newly opened tab. If nothing happens, then allow popups on Canvas and try again.`);
+      alert(`Please re-run this script in the newly opened tab. If nothing happens, then allow popups on Canvas and try again.`);
       open(url3);
     });
   });
@@ -62,7 +62,7 @@ function handleSchoologyURL() {
   let assignment_id = window.location.href.split("/")[4];
   let url = `/external_tool/${assignment_id}/launch/iframe`;
   http_get(url, function() {
-    alert(`Re-run this script in the newly opened tab. If nothing happens, then allow popups on Schoology and try again.`);
+    alert(`Please re-run this script in the newly opened tab. If nothing happens, then allow popups on Schoology and try again.`);
 
     //strip js tags from response and add to dom
     let html = this.responseText.replace(/<script[\s\S]+?<\/script>/, ""); 
@@ -153,7 +153,7 @@ function openPopup(assignment) {
       get_tag("script", base_url+"/app/videooptions.js");
       get_tag("script", base_url+"/app/videospeed.js");
     </script>
-    <title>oNullr Edpuzzle Script
+    <title>Answers for: ${media.title}</title>
   </head>
   <div id="header_div">
     <div>
@@ -193,7 +193,7 @@ function openPopup(assignment) {
     <p style="font-size: 12px" id="loading_text"></p>
   </div>
   <hr>
-  <p style="font-size: 12px">Made by: oNullr 
+  <p style="font-size: 12px">Made by: oNullr
   popup = window.open("about:blank", "", "width=600, height=400");
   popup.document.write(base_html);
 
